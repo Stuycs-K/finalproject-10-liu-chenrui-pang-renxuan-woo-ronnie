@@ -1,5 +1,7 @@
 # Final Project Proposal
 
+Brainfuck Interpreter (in 3 languages)
+
 ## Group Members:
 
 Chenrui Liu
@@ -8,11 +10,11 @@ Ronnie Woo
 
 # Intentions:
 
-A statement of the problem you are solving and/or a high level description of the project. (CHANGE THIS!!!!!)
+We will make an interpreter that can read Brainfuck, and output the results as intended. 
 
 # Intended usage:
 
-A description as to how the project will be used (describe the user interface). (CHANGE THIS!!!!!)
+The user will be able to just use the makefile in the terminal to convert brainfuck to human-readable format. 
 
 # Technical Details:
 
@@ -24,7 +26,11 @@ How you will be using the topics covered in class in the project.
 
 How you are breaking down the project and who is responsible for which parts.
 
+The interpreter plays into the role of stegnography through obfuscating plain text into brainfuck and converting the other way around. 
+It is essentially a type of cipher that uses the programming language instead of a set key.
+
+Our group will likely split the work very simply by making the interpreter in a different language each. 
 
 # Intended pacing:
 
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+The first week will be used to try to finish the majority of project, if pacing goes well we will do something extra/snazzy for the second week.
