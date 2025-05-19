@@ -13,3 +13,5 @@ Did research about brainfuck while group was absent.
 ### 2025-05-16 - Absent
 I was taking my AP Psychology Exam
 
+### 2025-05-19 - Started Coding
+I am working on the java program to encode plaintext into brainfuck.
