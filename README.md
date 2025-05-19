@@ -9,7 +9,7 @@ Renxuan Pang
 Ronnie Woo
 
 ### Project Description:
-We will be writing a brainfuck interpreter in 3 different langauges.
+We will be writing a brainfuck interpreter in Java.
 
 ### Instructions:
 
