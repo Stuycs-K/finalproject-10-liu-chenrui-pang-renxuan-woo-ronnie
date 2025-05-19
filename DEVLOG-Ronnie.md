@@ -9,3 +9,7 @@ This document must be updated daily every time you finish a work session.
 ### 2025-05-16 - Project Discussion
 
 We spent the class period discussing and deciding on our project idea.
+
+### 2025-05-16 - Starting encode
+
+We decided in class to make an encoder, decoder, and visualizer. I began coding the encoder and set up a basic input prompt structure.
