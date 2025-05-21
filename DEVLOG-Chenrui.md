@@ -15,3 +15,6 @@ I was taking my AP Psychology Exam
 
 ### 2025-05-19 - Started Coding
 I am working on the java program to encode plaintext into brainfuck.
+
+### 2025-05-20 - Finish Encoder
+I spent class time studying the algorithm for encoding plaintext into brainfuck, mapping out how to do it. I spent time at home making the actual program which works as intended.
