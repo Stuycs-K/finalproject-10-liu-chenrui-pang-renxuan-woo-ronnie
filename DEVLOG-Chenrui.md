@@ -18,3 +18,6 @@ I am working on the java program to encode plaintext into brainfuck.
 
 ### 2025-05-20 - Finish Encoder
 I spent class time studying the algorithm for encoding plaintext into brainfuck, mapping out how to do it. I spent time at home making the actual program which works as intended.
+
+### 2025-05-21 - Working on File Mode
+I am attempting to make a file mode for my encoder to convert numerical bytes into brainfuck.

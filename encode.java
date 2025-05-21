@@ -1,12 +1,68 @@
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class encode {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Please enter plaintext.");
+        if (args.length != 2) {
+            System.out.println("Program Usage:");
+            System.out.println("java encode -f <filename>");
+            System.out.println("java encode -p <plaintext>");
         }
         else {
-            String input = args[0];
-            System.out.println(converter(input));
+            String mode = args[0];
+            String input = args[1];
+
+            String plaintext = null;
+            int[] byteValues = null;
+
+            if(mode.equals("-f")){
+                if(Files.exists(Paths.get(input))){
+                    byte[] fileBytes = Files.readAllBytes(Paths.get(input));
+                    byteValues = new int[fileBytes.length];
+                    for (int i = 0; i < fileBytes.length; i++){
+                        byteValues[i] = fileBytes[i] & 0xFF;
+                    }
+
+                    System.out.println(converter(byteValues));
+                }
+            }
+            else if (mode.equals("-p")){
+                plaintext = input;
+
+                System.out.println(converter(plaintext));
+            }
+            else{
+                System.out.println("Unknown flag");
+            }
         }
+    }
+
+    public static String converter(int[] byteValues){
+        String result = "++++++++++[";
+
+        for (int byteValue : byteValues) {
+            result += ">";
+            for (int i = 0; i < byteValue / 10; i++) {
+                result += "+";
+            }
+        }
+
+        for (int i = 0; i < byteValues.length; i++) {
+            result += "<";
+        }
+        result += "-]";
+
+        for (int byteValue : byteValues) {
+            int remainder = byteValue % 10;
+
+            result += ">";
+            for (int i = 0; i < remainder; i++) {
+                result += "+";
+            }
+            result += ".";
+        }
+
+        return result;
     }
 
     public static String converter(String text) {
