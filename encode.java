@@ -1,4 +1,4 @@
-public class Decode {
+public class encode {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("Please enter plaintext.");
@@ -10,16 +10,36 @@ public class Decode {
     }
 
     public static String converter(String text) {
-        String result = "++++++++++";
+        String result = "++++++++++[";
+
         for (char c : text.toCharArray()) {
             int asciiValue = (int) c;
+            result += ">";
             for (int i = 0; i < asciiValue / 10; i++) {
                 result += "+";
             }
-            result += ">";
         }
+
         // go back "<" depending on length of text to cell 0 to decrement.
+
+        for(int i = 0; i < text.length(); i++){
+            result += "<";
+        }
+        result += "-]";
+
         // increment the remainders of the ascii values and then output.
+
+        for (char c : text.toCharArray()){
+            int asciiValue = (int) c;
+            int increment = asciiValue % 10;
+            
+            result += ">";
+            for (int i = 0; i < increment; i++){
+                result += "+";
+            }
+            result += ".";
+        }
+
         return result;
     }
 }
