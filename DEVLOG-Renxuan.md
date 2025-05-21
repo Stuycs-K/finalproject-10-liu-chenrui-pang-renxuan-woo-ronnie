@@ -24,3 +24,8 @@ Today I got the boilerplate for the code working and makefile running, ready to 
 Today I got majority of the textboxes and GUI done.
 Tomorrow will be extended testing for Array functions and print methods. 
 Also need more research on ANSI escape sequences. 
+
+### 2025-5-21
+Today I got the input history box working, and the view array function done. 
+I also did some design changes regarding flavor text and instructions. 
+Tomorrow will be adding more functions to the brainfuck interpreting. 
