@@ -4,7 +4,7 @@ This document must be updated daily every time you finish a work session.
 
 ## Ronnie Woo
 
-### 2025-05-15 - Absent for AP Exam
+### 2025-05-15 - Absent for AP Physics C Exam
 
 ### 2025-05-16 - Project Discussion
 
@@ -17,3 +17,5 @@ We decided in class to make an encoder, decoder, and visualizer. I began coding 
 ### 2025-05-20 - Implementing commands
 
 I created the first 5 commands (without taking user input or loops), but didn't test yet. 
+
+### 2025-05-21 - Absent for AP Macroeconomics Exam
