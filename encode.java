@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class encode{
   public static void main(String[] args){
     if (args.length == 0){
@@ -38,6 +40,11 @@ public class encode{
         if (cmd == '.'){
           System.out.print(array[pointer]);
         }
+        if (cmd == ','){
+          Scanner s = new Scanner(System.in);
+          System.out.print("Enter a character to store in the array: ");
+          array[pointer] = s.next().charAt(0);
+        }
       }
       System.out.println("");
     }
@@ -46,4 +53,6 @@ public class encode{
 
 //tests
 //make encode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.+."
-//output = "ABCD"
+//output: "ABCD"
+//make encode ARGS=",."
+//output: "A"
