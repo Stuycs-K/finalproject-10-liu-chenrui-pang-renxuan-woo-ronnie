@@ -11,23 +11,39 @@ public class encode{
         char cmd = input.charAt(i);
         if (cmd == '>'){
           pointer++;
+          if (pointer > array.length){
+            System.out.println("RANGE ERROR");
+            break;
+          }
         }
         if (cmd == '<'){
           pointer--;
+          if (pointer < 0){
+            System.out.println("RANGE ERROR");
+            break;
+          }
         }
         if (cmd == '+'){
           array[pointer]++;
+          if (array[pointer] == 256){
+            array[pointer] = 0;
+          }
         }
         if (cmd == '-'){
           array[pointer]--;
+          if (array[pointer] == -1){
+            array[pointer] = 255;
+          }
         }
         if (cmd == '.'){
-          System.out.println(array[pointer]);
+          System.out.print(array[pointer]);
         }
       }
+      System.out.println("");
     }
   }
 }
 
 //tests
-//make encode ARGS="[->+<]"
+//make encode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.+."
+//output = "ABCD"
