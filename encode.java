@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -6,7 +7,7 @@ public class encode {
         if (args.length != 2) {
             System.out.println("Program Usage:");
             System.out.println("java encode -f <filename>");
-            System.out.println("java encode -p <plaintext>");
+            System.out.println("java encode -p '<plaintext>'");
         }
         else {
             String mode = args[0];
@@ -16,24 +17,44 @@ public class encode {
             int[] byteValues = null;
 
             if(mode.equals("-f")){
+
                 if(Files.exists(Paths.get(input))){
-                    byte[] fileBytes = Files.readAllBytes(Paths.get(input));
-                    byteValues = new int[fileBytes.length];
-                    for (int i = 0; i < fileBytes.length; i++){
-                        byteValues[i] = fileBytes[i] & 0xFF;
+
+                    try{
+                        byte[] fileBytes = Files.readAllBytes(Paths.get(input));
+                        byteValues = new int[fileBytes.length];
+                        for (int i = 0; i < fileBytes.length; i++){
+                            byteValues[i] = fileBytes[i] & 0xFF;
+                        }
+                    }
+
+                    catch (IOException e){
+                        System.out.println("Error reading file: " + input);
+                        System.out.println(e.getMessage());
+                        return;
                     }
 
                     System.out.println(converter(byteValues));
                 }
+
+            else{
+                System.out.println("Error: File not found.");
+                return;
             }
+
+            }
+
             else if (mode.equals("-p")){
                 plaintext = input;
 
                 System.out.println(converter(plaintext));
             }
+
             else{
                 System.out.println("Unknown flag");
+                return;
             }
+
         }
     }
 
