@@ -2,17 +2,19 @@ import java.util.*;
 public class Visulizer{
   //private editable fields
   private static int[] page = {0, 25};
-  private static byte[] info = new byte[30000];
+  private static int[] info = new int[30000];
   private static int pointerCol = 3;
   private static int pointerRow = 26;
   private static LinkedList<String> inputHistory = new LinkedList();
   private static int maxHistory = 48 * 17;
-
+  private static LinkedList<String> outputHistory = new LinkedList();
+  private static String flavorText = "Type q to quit, otherwise enter Brainfuck instructions.";
+  private static String resetBar = "                                           ";
   public static void main(String[] args){
     //debugging texts
-    for (int i = page[0]; i < page[1]; i ++){
-      info[i]+=1;
-    }
+    // for (int i = page[0]; i < page[1]; i ++){
+    //   info[i]+=97;
+    // }
     //scanner setup
     Scanner sc = new Scanner(System.in);
     String input = "";
@@ -22,6 +24,7 @@ public class Visulizer{
       generateTextbox();
       viewArray();
       viewInputs();
+      viewOutputs();
       printPointer();
       resetCursor();
       input = sc.next();
@@ -63,6 +66,54 @@ public class Visulizer{
           inputHistory.removeFirst();
         }
       }
+      //period
+      if (input.equals(".")){
+        int index = pointerCol / 3 - 1;
+        outputHistory.add("" + (char)info[index]);
+        if (outputHistory.size() > maxHistory){
+          outputHistory.removeFirst();
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //plus sign
+      if (input.equals("+")){
+        int index = (pointerCol - 3) / 4;
+        info[index] += 1;
+        if (info[index] > 255){
+          info[index] = 0;
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //minus sign
+      if (input.equals("-")){
+        int index = (pointerCol - 3) / 4;
+        info[index] -= 1;
+        if (info[index] < 0){
+          info[index] = 255;
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //comma
+      if (input.equals(",")){
+        flavorText = "Awaiting input (Considers only first character)";
+        awaitingCursorReset();
+        String insert = sc.next();
+        int index = (pointerCol - 3) / 4;
+        info[index] = (int) insert.charAt(0);
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
     }
       System.out.print("\u001B[33;1;H");
       sc.close();
@@ -99,7 +150,7 @@ public class Visulizer{
 
   public static void viewArray(){
     int row = 24;
-    int col = 4;
+    int col = 2;
     for (int i = page[0]; i < page[1]; i ++){
       System.out.print("\u001B[" + row + ";" + col + ";H");
       System.out.print(info[i]);
@@ -109,9 +160,18 @@ public class Visulizer{
 
   public static void resetCursor(){
     System.out.print("\u001B[30;2;H");
-    System.out.print("Type q to quit, otherwise enter Brainfuck instructions.");
+    System.out.print(flavorText);
     System.out.print("\u001B[29;2;H");
     System.out.print("User Input: ");
+  }
+
+  public static void awaitingCursorReset(){
+    System.out.print("\u001B[30;2;H");
+    System.out.print(flavorText);
+    System.out.print(resetBar);
+    System.out.print("\u001B[29;2;H");
+    System.out.print("User Input: ");
+    System.out.print(resetBar);
   }
 
   public static void printPointer(){
@@ -128,6 +188,19 @@ public class Visulizer{
       col += 1;
       if (col > 49){
         col = 3;
+        row += 1;
+      }
+    }
+  }
+  public static void viewOutputs(){
+    int row = 5;
+    int col = 3 + 50;
+    for (int i = 0; i < outputHistory.size(); i ++){
+      System.out.print("\u001B[" + row + ";" + col + ";H");
+      System.out.print(outputHistory.get(i));
+      col += 1;
+      if (col > 49 + 50){
+        col = 3 + 50;
         row += 1;
       }
     }
