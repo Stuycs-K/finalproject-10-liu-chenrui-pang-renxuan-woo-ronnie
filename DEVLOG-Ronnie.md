@@ -23,3 +23,7 @@ I created the first 5 commands (without taking user input or loops), and started
 ### 2025-05-22 - Wrapping and Byte Input
 
 I implemented wrapping for + and - between the valid ASCII values of 0-255, and added range errors for if the pointer to is moved out of bounds of the 30000 cell array. I then implemented byte input from the user with ,.
+
+### 2025-05-22 - Looping Code
+
+I implemented loops with the [ and ] symbols, but didn't test yet.
