@@ -8,15 +8,15 @@ This document must be updated daily every time you finish a work session.
 
 ### 2025-05-16 - Project Discussion
 
-We spent the class period discussing and deciding on our project idea.
+We spent the class period discussing different ideas and deciding on our project.
 
 ### 2025-05-19 - Starting encode
 
-We decided in class to make an encoder, decoder, and visualizer. I began coding the encoder and set up a basic input prompt structure.
+We decided in class to make a brainfuck encoder, decoder, and visualizer. We looked at what the different symbols do in brainfuck at https://en.wikipedia.org/wiki/Brainfuck. I began coding the encoder and set up a basic input prompt structure.
 
 ### 2025-05-20 - Implementing commands
 
-I created the first 5 commands (without taking user input or loops), but didn't test yet. 
+I created the first 5 commands (without taking user input or loops), and started testing at https://www.tutorialspoint.com/compilers/online-brainfk-compiler.htm.
 
 ### 2025-05-21 - Absent for AP Macroeconomics Exam
 
