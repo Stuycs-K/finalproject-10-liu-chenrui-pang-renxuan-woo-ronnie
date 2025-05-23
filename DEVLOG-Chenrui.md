@@ -27,3 +27,7 @@ I was taking my AP Calculus BC Exam.
 
 ### 2025-05-23 - File Mode Completed
 I made a working file mode but soon realized that if I run the file mode on an image, the resulting output is too long so it freezes the program for a bit. I am considering an alternative way to demonstrate this encoding more concisely.
+
+After bouncing ideas with my teammates, I decided the best course of action is to add another flag for if we want to output the brainfuck in shorthand mode or standard mode. Shorthand mode will be useful for large data to minimize the brainfuck output.
+
+

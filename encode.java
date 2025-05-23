@@ -4,19 +4,22 @@ import java.nio.file.Paths;
 
 public class encode {
     public static void main(String[] args) {
-        if (args.length != 2) {
+        if (args.length != 3) {
             System.out.println("Program Usage:");
-            System.out.println("java encode -f <filename>");
-            System.out.println("java encode -p '<plaintext>'");
+            System.out.println("java encode <flag1> <flag2> <arg>");
+            System.out.println("<flag1> = '-p' (plaintext) or '-f' (file)");
+            System.out.println("<flag2> = '-s' (shorthand output) or '-n' (standard output)");
+            System.out.println("<arg> = '<plaintext>' or '<file name>' ");
         }
         else {
-            String mode = args[0];
-            String input = args[1];
+            String inputMode = args[0];
+            String outputMode = args[1];
+            String input = args[2];
 
             String plaintext = null;
             int[] byteValues = null;
 
-            if(mode.equals("-f")){
+            if(inputMode.equals("-f")){
 
                 if(Files.exists(Paths.get(input))){
 
@@ -27,31 +30,50 @@ public class encode {
                             byteValues[i] = fileBytes[i] & 0xFF;
                         }
                     }
-
                     catch (IOException e){
                         System.out.println("Error reading file: " + input);
                         System.out.println(e.getMessage());
                         return;
                     }
+                    
+                    if(outputMode.equals("-s")){
+                        System.out.println(shorthand(byteValues));
+                    }
+                    else if(outputMode.equals("-n")){
+                        System.out.println(converter(byteValues));
+                    }
+                    else{
+                        System.out.println("Invalid <flag2>");
+                        return;
+                    }
 
-                    System.out.println(converter(byteValues));
                 }
 
-            else{
-                System.out.println("Error: File not found.");
-                return;
-            }
+                else{
+                    System.out.println("Error: File not found.");
+                    return;
+                }
 
             }
 
-            else if (mode.equals("-p")){
+            else if (inputMode.equals("-p")){
                 plaintext = input;
 
-                System.out.println(converter(plaintext));
+                if(outputMode.equals("-s")){
+                    System.out.println(shorthand(plaintext));
+                 }
+                else if(outputMode.equals("-n")){
+                    System.out.println(converter(plaintext));
+                }
+                else{
+                    System.out.println("Invalid <flag2>");
+                    return;
+                }
+
             }
 
             else{
-                System.out.println("Unknown flag");
+                System.out.println("Invalid <flag1>");
                 return;
             }
 
@@ -80,6 +102,43 @@ public class encode {
             for (int i = 0; i < remainder; i++) {
                 result += "+";
             }
+            result += ".";
+        }
+
+        return result;
+    }
+
+    public static String shorthand(int[] byteValues){
+        String result = "10+[";
+
+        for (int byteValue : byteValues) {
+            result += ">";
+            int count = 0;
+
+            for (int i = 0; i < byteValue / 10; i++) {
+                count++;
+            }
+
+            result += count + "+";
+        }
+
+        for (int i = 0; i < byteValues.length; i++) {
+            result += "<";
+        }
+        result += "-]";
+
+        for (int byteValue : byteValues) {
+            int remainder = byteValue % 10;
+            int count = 0;
+
+            result += ">";
+
+            for (int i = 0; i < remainder; i++) {
+                count++;
+            }
+
+            result += count + "+";
+
             result += ".";
         }
 
@@ -118,6 +177,48 @@ public class encode {
         }
 
         return result;
+    }
+
+    public static String shorthand(String text){
+        String result = "10+[";
+
+        for (char c : text.toCharArray()) {
+            int asciiValue = (int) c;
+            int count = 0;
+
+            result += ">";
+
+            for (int i = 0; i < asciiValue / 10; i++) {
+                count++;
+            }
+
+            result += count + "+"; 
+        }
+
+        for(int i = 0; i < text.length(); i++){
+            result += "<";
+        }
+
+        result += "-]";
+
+        for (char c : text.toCharArray()){
+            int asciiValue = (int) c;
+            int increment = asciiValue % 10;
+            int count = 0;
+            
+            result += ">";
+
+            for (int i = 0; i < increment; i++){
+                count++;
+            }
+            
+            result += count + "+";
+
+            result += ".";
+        }
+
+        return result;
+
     }
 }
 
