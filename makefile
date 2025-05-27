@@ -1,6 +1,6 @@
-encode: encode.class
-	@java encode $(ARGS)
-encode.class:
-	@javac encode.java
+decode: decode.class
+	@java decode $(ARGS)
+decode.class:
+	@javac decode.java
 clean:
 	@rm -rf *.class

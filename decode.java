@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class encode{
+public class decode{
   public static void main(String[] args){
     if (args.length == 0){
-      System.out.println("Format: make encode ARGS=\'(insert BF code)\'");
+      System.out.println("Format: make decode ARGS=\'(insert BF code)\'");
     }
     else{
       String input = args[0];
@@ -64,7 +64,7 @@ public class encode{
   }
 }
 //tests
-//make encode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.+."
+//make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.+."
 //output: "ABCD"
-//make encode ARGS=",."
+//make decode ARGS=",."
 //output: "A"
