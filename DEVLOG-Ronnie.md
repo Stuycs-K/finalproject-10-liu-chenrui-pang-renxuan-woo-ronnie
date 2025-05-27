@@ -27,3 +27,7 @@ I implemented wrapping for + and - between the valid ASCII values of 0-255, and 
 ### 2025-05-22 - Looping Code
 
 I implemented loops with the [ and ] symbols, but didn't test yet.
+
+### 2025-05-27 - Testing loops
+
+I tested the loop code and fixed escape characters within the test cases.

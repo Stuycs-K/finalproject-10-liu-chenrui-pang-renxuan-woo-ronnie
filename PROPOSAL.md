@@ -1,6 +1,6 @@
 # Final Project Proposal
 
-Brainfuck Interpreter (in 3 languages)
+Brainfuck Interpreter (in java)
 
 ## Group Members:
 
@@ -10,11 +10,11 @@ Ronnie Woo
 
 # Intentions:
 
-We will make an interpreter that can read Brainfuck, and output the results as intended. 
+We will make an interpreter that can read Brainfuck, and output the results as intended.
 
 # Intended usage:
 
-The user will be able to just use the makefile in the terminal to convert brainfuck to human-readable format. 
+The user will be able to just use the makefile in the terminal to convert brainfuck to human-readable format.
 
 # Technical Details:
 
@@ -26,7 +26,7 @@ How you will be using the topics covered in class in the project.
 
 How you are breaking down the project and who is responsible for which parts.
 
-The interpreter plays into the role of stegnography through obfuscating plain text into brainfuck and converting the other way around. 
+The interpreter plays into the role of stegnography through obfuscating plain text into brainfuck and converting the other way around.
 It is essentially a type of cipher that uses the programming language instead of a set key.
 
 # Intended pacing:

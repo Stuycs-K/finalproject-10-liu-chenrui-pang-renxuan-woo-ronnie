@@ -10,6 +10,7 @@ public class decode{
       char[] array = new char[30000];
       int pointer = 0;
       execute(input, array, pointer);
+      System.out.println("");
     }
   }
 
@@ -59,12 +60,15 @@ public class decode{
         i += subInput.length() + 1;
       }
     }
-    System.out.println("");
     return pointer;
   }
 }
-//tests
+//Test 1: Pass
 //make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.+."
 //output: "ABCD"
+//Test 2: Pass
 //make decode ARGS=",."
 //output: "A"
+//Test 3 (1D bracket looping): Pass
+//make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.[-\>+\<]\>."
+//output:"AA"
