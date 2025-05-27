@@ -68,3 +68,4 @@ public class decode{
 //output: "ABCD"
 //make decode ARGS=",."
 //output: "A"
+//make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.[->+<]."
