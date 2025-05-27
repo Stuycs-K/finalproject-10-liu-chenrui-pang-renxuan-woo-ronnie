@@ -6,7 +6,7 @@ public class encode {
     public static void main(String[] args) {
         if (args.length != 3) {
             System.out.println("Program Usage:");
-            System.out.println("java encode <flag1> <flag2> <arg>");
+            System.out.println("make encode ARGS='<flag1> <flag2> <arg>''");
             System.out.println("<flag1> = '-p' (plaintext) or '-f' (file)");
             System.out.println("<flag2> = '-s' (shorthand output) or '-n' (standard output)");
             System.out.println("<arg> = '<plaintext>' or '<file name>' ");
@@ -35,7 +35,7 @@ public class encode {
                         System.out.println(e.getMessage());
                         return;
                     }
-                    
+
                     if(outputMode.equals("-s")){
                         System.out.println(shorthand(byteValues));
                     }
@@ -168,7 +168,7 @@ public class encode {
         for (char c : text.toCharArray()){
             int asciiValue = (int) c;
             int increment = asciiValue % 10;
-            
+
             result += ">";
             for (int i = 0; i < increment; i++){
                 result += "+";
@@ -192,7 +192,7 @@ public class encode {
                 count++;
             }
 
-            result += count + "+"; 
+            result += count + "+";
         }
 
         for(int i = 0; i < text.length(); i++){
@@ -205,13 +205,13 @@ public class encode {
             int asciiValue = (int) c;
             int increment = asciiValue % 10;
             int count = 0;
-            
+
             result += ">";
 
             for (int i = 0; i < increment; i++){
                 count++;
             }
-            
+
             result += count + "+";
 
             result += ".";
