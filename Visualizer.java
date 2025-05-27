@@ -114,6 +114,10 @@ public class Visualizer{
           inputHistory.removeFirst();
         }
       }
+      if (input.equals("[")){
+        int index = (pointerCol - 3) / 4;
+        leftBracket(info[index]);
+      }
     }
       System.out.print("\u001B[33;1;H");
       sc.close();
@@ -170,8 +174,9 @@ public class Visualizer{
     System.out.print(flavorText);
     System.out.print(resetBar);
     System.out.print("\u001B[29;2;H");
-    System.out.print("User Input: ");
     System.out.print(resetBar);
+    System.out.print("\u001B[29;2;H");
+    System.out.print("User Input: ");
   }
 
   public static void printPointer(){
@@ -204,5 +209,153 @@ public class Visualizer{
         row += 1;
       }
     }
+  }
+  public static int fakeMain(){
+    Scanner sc = new Scanner(System.in);
+    String input = "";
+    int index = (pointerCol - 3) / 4;
+    //main loop
+    while (!input.equals("]")){
+      //Initilization
+      generateTextbox();
+      viewArray();
+      viewInputs();
+      viewOutputs();
+      printPointer();
+      resetCursor();
+      input = sc.next();
+      //Greater than
+      if (input.equals(">")){
+        if (pointerCol < 99){
+          pointerCol += 4;
+        }
+        else{
+          if (page[1] < 30000){
+            page[0] += 1;
+            page[1] += 1;
+          }
+          else{
+            System.out.print("Array index error (needs catching)");
+          }
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //Less than
+      if (input.equals("<")){
+        if (pointerCol > 3){
+          pointerCol -= 4;
+        }
+        else{
+          if (page[0] > 0){
+            page[0] -= 1;
+            page[1] -= 1;
+          }
+          else{
+            System.out.print("Array index error (needs catching)");
+          }
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //period
+      if (input.equals(".")){
+        index = pointerCol / 3 - 1;
+        outputHistory.add("" + (char)info[index]);
+        if (outputHistory.size() > maxHistory){
+          outputHistory.removeFirst();
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //plus sign
+      if (input.equals("+")){
+        index = (pointerCol - 3) / 4;
+        info[index] += 1;
+        if (info[index] > 255){
+          info[index] = 0;
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //minus sign
+      if (input.equals("-")){
+        index = (pointerCol - 3) / 4;
+        info[index] -= 1;
+        if (info[index] < 0){
+          info[index] = 255;
+        }
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //comma
+      if (input.equals(",")){
+        flavorText = "Awaiting input (Considers only first character)";
+        awaitingCursorReset();
+        String insert = sc.next();
+        index = (pointerCol - 3) / 4;
+        info[index] = (int) insert.charAt(0);
+        inputHistory.add(input);
+        if (inputHistory.size() > maxHistory){
+          inputHistory.removeFirst();
+        }
+      }
+      //brackets
+      if (input.equals("[")){
+        leftBracket(info[index]);
+      }
+    }
+    return info[index];
+  }
+  public static void leftBracket(int cur){
+    while (cur != 0){
+      cur = fakeMain();
+    }
+    Scanner sc = new Scanner(System.in);
+    String input = "";
+    int index = (pointerCol - 3) / 4;
+    flavorText = "awaiting for closing bracket";
+    inputHistory.add(input);
+    if (inputHistory.size() > maxHistory){
+      inputHistory.removeFirst();
+    }
+    input = "";
+    while (!input.equals("]")){
+      generateTextbox();
+      viewArray();
+      viewInputs();
+      viewOutputs();
+      printPointer();
+      resetCursor();
+      input = sc.next();
+      inputHistory.add(input);
+      if (inputHistory.size() > maxHistory){
+        inputHistory.removeFirst();
+      }
+    }
+    flavorText = "Type q to quit, otherwise enter Brainfuck instructions.";
+    if (pointerCol < 99){
+      pointerCol += 4;
+    }
+    else{
+      if (page[1] < 30000){
+        page[0] += 1;
+        page[1] += 1;
+      }
+      else{
+        System.out.print("Array index error (needs catching)");
+      }
+    }
+    sc.close();
   }
 }
