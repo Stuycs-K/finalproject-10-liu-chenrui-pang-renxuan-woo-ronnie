@@ -1,5 +1,5 @@
 import java.util.*;
-public class Visulizer{
+public class Visualizer{
   //private editable fields
   private static int[] page = {0, 25};
   private static int[] info = new int[30000];
