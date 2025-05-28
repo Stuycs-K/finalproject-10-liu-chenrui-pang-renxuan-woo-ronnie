@@ -378,10 +378,27 @@ public class Visualizer {
             }
           }
           int instanceStart = i + 1;
-          if (info[pointer] == 0) {
+          if (info[pointer] == 0){
             i = instanceEnd;
-          } else {
-            rightBracket(pointer, instanceStart, instanceEnd);
+          }
+        }
+        if (inputHistory.get(i).equals("]")){
+          int count = 0;
+          int instanceEnd = -1;
+          if (info[pointer] != 0){
+            for (int j = i; j >= start-1; j--) {
+              if (inputHistory.get(j).equals("]")) {
+                count++;
+              }
+              if (inputHistory.get(j).equals("[")) {
+                count--;
+              }
+              if (count == 0) {
+                instanceEnd = j + 1;
+                break;
+              }
+            }
+            rightBracket(pointer, instanceEnd, i+1);
           }
         }
       }
