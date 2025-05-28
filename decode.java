@@ -55,7 +55,6 @@ public class decode{
         //find the index of the corresponding right bracket
         int j = i;
         int nestedLoopCount = 0;
-        int rightBracketIndex;
         while (nestedLoopCount >= 0){
           j++;
           if (input.charAt(j) == '['){
@@ -65,7 +64,7 @@ public class decode{
             nestedLoopCount--;
           }
         }
-        subInput = input.substring(i, j);
+        String subInput = input.substring(i + 1, j);
         while (array[pointer] != 0){
           pointer = execute(subInput, array, pointer);
         }
@@ -84,3 +83,5 @@ public class decode{
 //Test 3 (1D bracket looping): Pass
 //make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.[-\>+\<]\>."
 //output:"AA"
+//Test 4 (Nested barcket looping): Pass
+//java decode ARGS="++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."
