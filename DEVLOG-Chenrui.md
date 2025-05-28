@@ -32,3 +32,6 @@ After bouncing ideas with my teammates, I decided the best course of action is t
 
 ### 2025-05-27 - Update Instructions and Update File Mode for output
 Added some instructions to the ReadME and also update encode.java to have proper output file for the brainfuck for file mode.
+
+### 2025-05-28 - Minor Updates to Instructions and Started PRESENTATION.md
+Started making the script for PRESENTATION.md (What it is, how it works, and short example).
