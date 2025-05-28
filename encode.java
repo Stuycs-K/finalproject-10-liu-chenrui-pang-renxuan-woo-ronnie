@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
+import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Paths;
 
 public class encode {
@@ -22,6 +24,7 @@ public class encode {
             if(inputMode.equals("-f")){
 
                 if(Files.exists(Paths.get(input))){
+                  File output = new File("output.txt");
 
                     try{
                         byte[] fileBytes = Files.readAllBytes(Paths.get(input));
@@ -29,6 +32,7 @@ public class encode {
                         for (int i = 0; i < fileBytes.length; i++){
                             byteValues[i] = fileBytes[i] & 0xFF;
                         }
+
                     }
                     catch (IOException e){
                         System.out.println("Error reading file: " + input);
@@ -37,10 +41,26 @@ public class encode {
                     }
 
                     if(outputMode.equals("-s")){
-                        System.out.println(shorthand(byteValues));
+                      try{
+                        FileWriter outputWriter = new FileWriter("output.txt");
+                        outputWriter.write(shorthand(byteValues));
+                        outputWriter.close();
+                      }
+                      catch (IOException e){
+                        System.out.println("Error with writing file");
+                        e.printStackTrace();
+                      }
                     }
                     else if(outputMode.equals("-n")){
-                        System.out.println(converter(byteValues));
+                      try{
+                        FileWriter outputWriter = new FileWriter("output.txt");
+                        outputWriter.write(converter(byteValues));
+                        outputWriter.close();
+                      }
+                      catch (IOException e){
+                        System.out.println("Error with writing file");
+                        e.printStackTrace();
+                      }
                     }
                     else{
                         System.out.println("Invalid <flag2>");
