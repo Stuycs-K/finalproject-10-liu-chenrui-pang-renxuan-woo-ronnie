@@ -8,8 +8,8 @@ public class encode {
     public static void main(String[] args) {
         if (args.length != 3) {
             System.out.println("Program Usage:");
-            System.out.println("make encode ARGS='<flag1> <flag2> <arg>''");
-            System.out.println("<flag1> = '-p' (plaintext) or '-f' (file)");
+            System.out.println("make encode ARGS='<flag1> <flag2> <arg>'");
+            System.out.println("<flag1> = '-p' (plaintext input) or '-f' (file input)");
             System.out.println("<flag2> = '-s' (shorthand output) or '-n' (standard output)");
             System.out.println("<arg> = '<plaintext>' or '<file name>' ");
         }

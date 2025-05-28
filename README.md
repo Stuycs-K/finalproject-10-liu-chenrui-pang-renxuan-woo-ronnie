@@ -15,7 +15,7 @@ We have rewritten the brainfuck interpreter with an encoder, decoder, and visual
 
 For encoder (order matters!):
 make encode ARGS="<flag1> <flag2> <arg>"
-<flag1> = '-p' (plaintext) or '-f' (file)
+<flag1> = '-p' (plaintext input) or '-f' (file input)
 <flag2> = '-s' (shorthand output) or '-n' (standard output)
 <arg> = '<plaintext>' or '<file name>'
 
