@@ -52,8 +52,20 @@ public class decode{
         array[pointer] = s.next().charAt(0);
       }
       if (cmd == '['){
-        String subInput = input.substring(i + 1);
-        subInput = subInput.substring(0, subInput.indexOf(']'));
+        //find the index of the corresponding right bracket
+        int j = i;
+        int nestedLoopCount = 0;
+        int rightBracketIndex;
+        while (nestedLoopCount >= 0){
+          j++;
+          if (input.charAt(j) == '['){
+            nestedLoopCount++;
+          }
+          if (input.charAt(j) == ']'){
+            nestedLoopCount--;
+          }
+        }
+        subInput = input.substring(i, j);
         while (array[pointer] != 0){
           pointer = execute(subInput, array, pointer);
         }
