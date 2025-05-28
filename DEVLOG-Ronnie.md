@@ -31,3 +31,7 @@ I implemented loops with the [ and ] symbols, but didn't test yet.
 ### 2025-05-27 - Testing loops
 
 I tested the loop code and fixed escape characters within the test cases.
+
+### 2025-05-28 - Nested loops
+
+I changed the looping code to allow for nested loops and tested successfully.
