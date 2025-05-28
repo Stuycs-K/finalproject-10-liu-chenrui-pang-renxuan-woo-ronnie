@@ -306,7 +306,7 @@ public class Visualizer {
     if (info[pointer] != 0) {
       appendInput(input);
       // outputHistory.add("" + recallPoint);
-      // initialization();
+      initialization();
       rightBracket(pointer, recallPoint, inputHistory.size());
     }
     initialization();
@@ -365,7 +365,7 @@ public class Visualizer {
         if (inputHistory.get(i).equals("[")) {
           int instanceEnd = -1;
           int count = 0;
-          for (int j = i; i < terminate; i++) {
+          for (int j = i; j < terminate; j++) {
             if (inputHistory.get(j).equals("[")) {
               count++;
             }
@@ -374,8 +374,6 @@ public class Visualizer {
             }
             if (count == 0) {
               instanceEnd = j + 1;
-              System.out.println(instanceEnd);
-              System.exit(0);
               break;
             }
           }
