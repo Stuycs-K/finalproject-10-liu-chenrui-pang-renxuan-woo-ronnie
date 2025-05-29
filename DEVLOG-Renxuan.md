@@ -48,3 +48,7 @@ Today I got most of brackets done, basic bracketing logic is complete, now I nee
 ### 2025-5-28
 
 Today I finished the program, should work as intended. Hello World! functions as normal.
+
+### 2025-5-29
+
+Today we finished up most of the MD files, ready to make the video. 
