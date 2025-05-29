@@ -56,7 +56,7 @@ public class Visualizer {
       }
       // period
       if (input.equals(".")) {
-        int index = pointerCol / 3 - 1;
+        int index = (pointerCol - 3) / 4;
         outputHistory.add("" + (char) info[index]);
         if (outputHistory.size() > maxHistory) {
           outputHistory.removeFirst();
@@ -93,9 +93,8 @@ public class Visualizer {
       // brackets
       if (input.equals("[")) {
         appendInput(input);
-        int recallPoint = inputHistory.size();
-        int index = (pointerCol - 3) / 4;
-        leftBracket(index, recallPoint);
+        int recallPoint = inputHistory.size() - 1;
+        leftBracket(recallPoint);
       }
     }
     System.out.print("\u001B[33;1;H");
@@ -218,17 +217,17 @@ public class Visualizer {
         input.equals("]"));
   }
 
-  public static void leftBracket(int index, int recallPoint) {
+  public static void leftBracket(int recallPoint) {
     Scanner brackets = new Scanner(System.in);
     String input = "";
-    int pointer = index;
+    int index = (pointerCol - 3) / 4;
     if (info[index] == 0) {
       while (!input.equals("]")) {
         initialization();
         input = brackets.next();
         if (input.equals("[")) {
           appendInput(input);
-          leftBracket(pointer, recallPoint);
+          leftBracket(recallPoint);
         } else {
           if (validInput(input)) {
             appendInput(input);
@@ -241,7 +240,6 @@ public class Visualizer {
         input = brackets.next();
         // greater than
         if (input.equals(">")) {
-          pointer++;
           if (pointerCol < 99) {
             pointerCol += 4;
           } else {
@@ -256,7 +254,6 @@ public class Visualizer {
         }
         // less than
         if (input.equals("<")) {
-          pointer--;
           if (pointerCol > 3) {
             pointerCol -= 4;
           } else {
@@ -271,7 +268,8 @@ public class Visualizer {
         }
         // period
         if (input.equals(".")) {
-          outputHistory.add("" + (char) info[pointer]);
+          int index2 = (pointerCol - 3) / 4;
+          outputHistory.add("" + (char) info[index2]);
           if (outputHistory.size() > maxHistory) {
             outputHistory.removeFirst();
           }
@@ -279,12 +277,14 @@ public class Visualizer {
         }
         // plus
         if (input.equals("+")) {
-          info[pointer]++;
+          int index2 = (pointerCol - 3) / 4;
+          info[index2]++;
           appendInput(input);
         }
         // minus
         if (input.equals("-")) {
-          info[pointer]--;
+          int index2 = (pointerCol - 3) / 4;
+          info[index2]--;
           appendInput(input);
         }
         // comma
@@ -292,32 +292,35 @@ public class Visualizer {
           flavorText = "Awaiting input (Considers only first character)";
           awaitingCursorReset();
           String insert = brackets.next();
-          info[pointer] = (int) insert.charAt(0);
+          int index2 = (pointerCol - 3) / 4;
+          info[index2] = (int) insert.charAt(0);
           appendInput(input);
         }
         // recycle brackets
         if (input.equals("[")) {
           appendInput(input);
-          int instanceRecall = inputHistory.size();
-          leftBracket(pointer, instanceRecall);
+          int instanceRecall = inputHistory.size() - 1;
+          leftBracket(instanceRecall);
         }
       }
     }
-    if (info[pointer] != 0) {
+    if (info[index] != 0) {
       appendInput(input);
       // outputHistory.add("" + recallPoint);
       initialization();
-      rightBracket(pointer, recallPoint, inputHistory.size());
+      rightBracket(recallPoint, inputHistory.size());
+    } else {
+      appendInput(input);
     }
     initialization();
   }
 
-  public static void rightBracket(int pointer, int start, int terminate) {
+  public static void rightBracket(int start, int terminate) {
     Scanner comma = new Scanner(System.in);
     for (int i = start; i <= terminate; i++) {
+      int index2 = (pointerCol - 3) / 4;
       if (i != terminate) {
         if (inputHistory.get(i).equals(">")) {
-          pointer++;
           if (pointerCol < 99) {
             pointerCol += 4;
           } else {
@@ -328,9 +331,7 @@ public class Visualizer {
               System.out.print("Array index error (needs catching)");
             }
           }
-        }
-        if (inputHistory.get(i).equals("<")) {
-          pointer--;
+        } else if (inputHistory.get(i).equals("<")) {
           if (pointerCol > 3) {
             pointerCol -= 4;
           } else {
@@ -341,28 +342,27 @@ public class Visualizer {
               System.out.print("Array index error (needs catching)");
             }
           }
-        }
-        if (inputHistory.get(i).equals("+")) {
-          info[pointer]++;
-        }
-        if (inputHistory.get(i).equals("-")) {
-          info[pointer]--;
-        }
-        if (inputHistory.get(i).equals(",")) {
+        } else if (inputHistory.get(i).equals("+")) {
+          index2 = (pointerCol - 3) / 4;
+          info[index2]++;
+        } else if (inputHistory.get(i).equals("-")) {
+          index2 = (pointerCol - 3) / 4;
+          info[index2]--;
+        } else if (inputHistory.get(i).equals(",")) {
           flavorText = "Awaiting input (Considers only first character)";
           awaitingCursorReset();
           String insert = comma.next();
-          info[pointer] = (int) insert.charAt(0);
+          index2 = (pointerCol - 3) / 4;
+          info[index2] = (int) insert.charAt(0);
           initialization();
-        }
-        if (inputHistory.get(i).equals(".")) {
-          outputHistory.add("" + (char) info[pointer]);
+        } else if (inputHistory.get(i).equals(".")) {
+          index2 = (pointerCol - 3) / 4;
+          outputHistory.add("" + (char) info[index2]);
           if (outputHistory.size() > maxHistory) {
             outputHistory.removeFirst();
           }
           initialization();
-        }
-        if (inputHistory.get(i).equals("[")) {
+        } else if (inputHistory.get(i).equals("[")) {
           int instanceEnd = -1;
           int count = 0;
           for (int j = i; j < terminate; j++) {
@@ -373,20 +373,20 @@ public class Visualizer {
               count--;
             }
             if (count == 0) {
-              instanceEnd = j + 1;
+              instanceEnd = j;
               break;
             }
           }
-          int instanceStart = i + 1;
-          if (info[pointer] == 0){
+          index2 = (pointerCol - 3) / 4;
+          if (info[index2] == 0) {
             i = instanceEnd;
           }
-        }
-        if (inputHistory.get(i).equals("]")){
+        } else if (inputHistory.get(i).equals("]")) {
           int count = 0;
           int instanceEnd = -1;
-          if (info[pointer] != 0){
-            for (int j = i; j >= start-1; j--) {
+          index2 = (pointerCol - 3) / 4;
+          if (info[index2] != 0) {
+            for (int j = i; j >= start - 1; j--) {
               if (inputHistory.get(j).equals("]")) {
                 count++;
               }
@@ -394,18 +394,15 @@ public class Visualizer {
                 count--;
               }
               if (count == 0) {
-                instanceEnd = j + 1;
+                instanceEnd = j;
                 break;
               }
             }
-            rightBracket(pointer, instanceEnd, i+1);
+            i = instanceEnd;
           }
         }
-      }
-      if (i == terminate) {
-        if (info[pointer] != 0) {
-          i = start - 1;
-        }
+      } else if (info[index2] != 0) {
+        i = start - 1;
       }
       // initialization();
     }

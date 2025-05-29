@@ -44,3 +44,7 @@ Next time I will work on adding indexes for the boxes, and some other optimizati
 ### 2025-5-27
 
 Today I got most of brackets done, basic bracketing logic is complete, now I need to work on nested ones.
+
+### 2025-5-28
+
+Today I finished the program, should work as intended. Hello World! functions as normal.
