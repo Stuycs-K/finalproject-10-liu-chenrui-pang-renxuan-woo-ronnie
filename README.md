@@ -16,15 +16,16 @@ We wrote brainfuck analyzation tools, including a Decoder, Encoder, and a Visual
 ### Run make clean
 
 #### For encoder (order matters!):
-make encode ARGS="<flag1> <flag2> <arg>"
-<flag1> = '-p' (plaintext mode) or '-f' (file mode)
-<flag2> = '-s' (shorthand output) or '-n' (standard output)
-<arg> = '<plaintext>' or '<file name>'
+`make encode ARGS="<flag1> <flag2> <arg>"`
+`<flag1>` = '-p' (plaintext mode) or '-f' (file mode)
+`<flag2>` = '-s' (shorthand output) or '-n' (standard output)
+`<arg>` = 'plaintext' or 'file name'
 
 Using plaintext mode will output the brainfuck to the terminal, while file mode will output the brainfuck to a `output.txt` file.
 
 #### For Visualizer
-make Visualizer
+`make Visualizer`
+
 In the GUI make sure to input correct brainfuck instructions, or press q to exit.
 In comma mode (input listening mode), only the first character (ASCII) will be considered.
 
