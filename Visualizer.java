@@ -279,12 +279,18 @@ public class Visualizer {
         if (input.equals("+")) {
           int index2 = (pointerCol - 3) / 4;
           info[index2]++;
+          if (info[index2] > 255) {
+            info[index2] = 0;
+          }
           appendInput(input);
         }
         // minus
         if (input.equals("-")) {
           int index2 = (pointerCol - 3) / 4;
           info[index2]--;
+          if (info[index2] < 0) {
+            info[index2] = 255;
+          }
           appendInput(input);
         }
         // comma
@@ -295,6 +301,8 @@ public class Visualizer {
           int index2 = (pointerCol - 3) / 4;
           info[index2] = (int) insert.charAt(0);
           appendInput(input);
+          flavorText = "Type q to quit, otherwise enter Brainfuck instructions.";
+          initialization();
         }
         // recycle brackets
         if (input.equals("[")) {
@@ -345,15 +353,22 @@ public class Visualizer {
         } else if (inputHistory.get(i).equals("+")) {
           index2 = (pointerCol - 3) / 4;
           info[index2]++;
+          if (info[index2] > 255) {
+            info[index2] = 0;
+          }
         } else if (inputHistory.get(i).equals("-")) {
           index2 = (pointerCol - 3) / 4;
           info[index2]--;
+          if (info[index2] < 0) {
+            info[index2] = 255;
+          }
         } else if (inputHistory.get(i).equals(",")) {
           flavorText = "Awaiting input (Considers only first character)";
           awaitingCursorReset();
           String insert = comma.next();
           index2 = (pointerCol - 3) / 4;
           info[index2] = (int) insert.charAt(0);
+          flavorText = "Type q to quit, otherwise enter Brainfuck instructions.";
           initialization();
         } else if (inputHistory.get(i).equals(".")) {
           index2 = (pointerCol - 3) / 4;
