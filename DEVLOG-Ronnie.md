@@ -35,3 +35,7 @@ I tested the loop code and fixed escape characters within the test cases.
 ### 2025-05-28 - Nested loops
 
 I changed the looping code to allow for nested loops and tested successfully.
+
+### 2025-05-29 - File mode
+
+I created file mode for encode, but didn't test it yet. I also fixed recursive "RANGE ERROR" printing.
