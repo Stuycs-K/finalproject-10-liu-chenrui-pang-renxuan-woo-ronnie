@@ -2,10 +2,12 @@
 # Brainfuck Interpreter
 
 ### GROUP NAME HERE
-Neurosurgeons
+**Neurosurgeons**
 
 Chenrui Liu
+
 Renxuan Pang
+
 Ronnie Woo
 
 ### Project Description:
@@ -17,8 +19,11 @@ We wrote brainfuck analyzation tools, including a Decoder, Encoder, and a Visual
 
 #### For encoder (order matters!):
 `make encode ARGS="<flag1> <flag2> <arg>"`
+
 `<flag1>` = '-p' (plaintext mode) or '-f' (file mode)
+
 `<flag2>` = '-s' (shorthand output) or '-n' (standard output)
+
 `<arg>` = 'plaintext' or 'file name'
 
 Using plaintext mode will output the brainfuck to the terminal, while file mode will output the brainfuck to a `output.txt` file.
