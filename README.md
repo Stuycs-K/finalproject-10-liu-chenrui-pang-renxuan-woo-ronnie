@@ -1,19 +1,21 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/am3xLbu5)
 # Brainfuck Interpreter
 
-### GROUP NAME HERE (CHANGE THIS!!!!!)
-TBD
+### GROUP NAME HERE
+Neurosurgeons
 
 Chenrui Liu
 Renxuan Pang
 Ronnie Woo
 
 ### Project Description:
-We have rewritten the brainfuck interpreter with an encoder, decoder, and visualizer on the algorithm.
+We wrote brainfuck analyzation tools, including a Decoder, Encoder, and a Visualizer. 
 
 ### Instructions:
 
-For encoder (order matters!):
+### Run make clean
+
+#### For encoder (order matters!):
 make encode ARGS="<flag1> <flag2> <arg>"
 <flag1> = '-p' (plaintext) or '-f' (file)
 <flag2> = '-s' (shorthand output) or '-n' (standard output)
@@ -21,13 +23,10 @@ make encode ARGS="<flag1> <flag2> <arg>"
 
 Using plaintext mode will output the brainfuck to the terminal, while file mode will output the brainfuck to a `.txt` file.
 
-How does the user install/compile/run the program. (CHANGE THIS!!!!!)
-
-make java ARGS="Insert String here"
-
-How does the user interact with this program? (CHANGE THIS!!!!!)
-
-The user will be able to convert brainfuck input into ascii/human readable output through giving ARGS.
+#### For Visualizer
+make Visualizer
+In the GUI make sure to input correct brainfuck instructions, or press q to exit. 
+In comma mode (input listening mode), only the first character (ASCII) will be considered. 
 
 ### Resources/ References:
 
