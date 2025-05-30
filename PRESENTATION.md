@@ -29,3 +29,4 @@ We can loop the the first two cells 10 times incrementing by 7 to get a value of
 But even with looping, the brainfuck can still be ridiculously long. Especially with our file mode implementation where you may want to encode the bytes of an image into brainfuck. Our encoder implements a shorthand that adds the number before the "+" increment. So if we were to increment 8 times, instead of "++++++++"  we can just write "8+". This improves readability massively.
 
 # Visualizer
+For the visualizer, after you run the code you will be presented with a GUI and all you have to do is to enter brainfuck instructions (the 8 instructions) and you will be able to see the code compile in action. On the bottom here displays 25 cells that 
