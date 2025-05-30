@@ -38,3 +38,6 @@ Started PRESENTATION.md as script for video.
 
 ### 2025-05-29 - Update README.md and PROPOSAL.md
 Worked with Renxuan on README and PROPOSAL
+
+### 2025-05-30 - Update PRESENTATION.md
+Worked on encoder part of PRESENTATION.md
