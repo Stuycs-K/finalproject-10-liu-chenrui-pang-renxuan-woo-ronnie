@@ -11,4 +11,4 @@ Visualizer: Visualizer.class
 Visualizer.class:
 	@javac Visualizer.java
 clean:
-	@rm -rf *.class
+	@rm -rf *.class output.txt
