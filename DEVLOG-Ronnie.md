@@ -36,6 +36,10 @@ I tested the loop code and fixed escape characters within the test cases.
 
 I changed the looping code to allow for nested loops and tested successfully.
 
-### 2025-05-29 - File mode
+### 2025-05-29 - Starting File mode
 
 I created file mode for encode, but didn't test it yet. I also fixed recursive "RANGE ERROR" printing.
+
+### 2025-05-30 - Finishing File mode
+
+I fixed a file writing for file mode in decode, and tested it.
