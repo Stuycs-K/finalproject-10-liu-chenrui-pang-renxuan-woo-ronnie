@@ -18,6 +18,18 @@ The loops only work as long as the byte at the position of the data pointer is n
 
 Each character's ASCII value needs to be reached by incrementing or decrementing a cell, and then printed. Loops make the process more efficient for repeating increments/decrements.
 
+# Decoding
+
+The decoder takes in a string of Brainfuck code, either as plaintext (`-p`) or in a file (`-f`). It uses a function `execute()` that parses the input and executes it character by character.
+
+`>` and `<` move the pointer. If the pointer ever goes out of bounds, `RANGE ERROR` is printed and the program ends.
+
+`+` and `-` increment the value at the cell being pointed at. The value wraps around within the range 0-255. `.` prints the character with the corresponding ASCII value at current cell.
+
+When `[`is parsed, `execute()` is called recursively on the substring of code between the left bracket and its corresponding right bracket. This substring is determined by reading forward one character at a time until `]` is found. For nested loops, if another `[` is found before a `]`, the next `]` is not counted as the corresponding right bracket.
+
+Example: `[+++.[+++].]`
+
 # Example for Understanding Encoding: "HI"
 At the most basic level, you can simply increment the current cell 72 times using the `+`command and then outputing "H" with `.` Increment it once more and outputing it to get "I", but that's no fun and the brainfuck clogs up the screen. We want to utilize loops.
 
