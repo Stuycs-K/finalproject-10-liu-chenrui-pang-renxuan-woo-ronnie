@@ -45,3 +45,5 @@ I created file mode for encode, but didn't test it yet. I also fixed recursive "
 I fixed a file writing for file mode in decode, and tested it.
 
 ### 2025-06-02 - Slides and README
+
+I wrote the presentation slides section and README section for the decoder.
