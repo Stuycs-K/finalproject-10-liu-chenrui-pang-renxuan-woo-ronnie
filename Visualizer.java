@@ -247,7 +247,7 @@ public class Visualizer {
               page[0] += 1;
               page[1] += 1;
             } else {
-              System.out.print("Array index error (needs catching)");
+              System.out.print("Array index error ");
             }
           }
           appendInput(input);
@@ -261,7 +261,7 @@ public class Visualizer {
               page[0] -= 1;
               page[1] -= 1;
             } else {
-              System.out.print("Array index error (needs catching)");
+              System.out.print("Array index error ");
             }
           }
           appendInput(input);
@@ -336,7 +336,7 @@ public class Visualizer {
               page[0] += 1;
               page[1] += 1;
             } else {
-              System.out.print("Array index error (needs catching)");
+              System.out.print("Array index error ");
             }
           }
         } else if (inputHistory.get(i).equals("<")) {
@@ -347,7 +347,7 @@ public class Visualizer {
               page[0] -= 1;
               page[1] -= 1;
             } else {
-              System.out.print("Array index error (needs catching)");
+              System.out.print("Array index error ");
             }
           }
         } else if (inputHistory.get(i).equals("+")) {
