@@ -6,16 +6,15 @@ Brainfuck is an esoteric programming language created in 1993 by Urban Muller me
 # How Brainfuck Works
 
 Here are the eight commands:
-`>`: Increment the data pointer
-`<`: Decrment the data pointer
-`+`: Increment the byte at the data pointer
-`-`: Decrement the byte at the data pointer
-`.`: Output the byte at the data pointer
-`[`: Is the start of a loop of commands.
-`]`: Is the end of a loop of commands.
+- `>`: Increment the data pointer
+- `<`: Decrment the data pointer
+- `+`: Increment the byte at the data pointer
+- `-`: Decrement the byte at the data pointer
+- `.`: Output the byte at the data pointer
+- `[`: Is the start of a loop of commands.
+- `]`: Is the end of a loop of commands.
 The loops only work as long as the byte at the position of the data pointer is not zero.
-
-`,`: Takes value of a character and outputs to active cell.
+- `,`: Takes value of a character and outputs to active cell.
 
 Each character's ASCII value needs to be reached by incrementing or decrementing a cell, and then printed. Loops make the process more efficient for repeating increments/decrements.
 
