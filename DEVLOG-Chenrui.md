@@ -41,3 +41,6 @@ Worked with Renxuan on README and PROPOSAL
 
 ### 2025-05-30 - Update PRESENTATION.md
 Worked on encoder part of PRESENTATION.md
+
+### 2025-06-02 - Update PRESENTATION.md
+Reworded the encoder part to be more general.
