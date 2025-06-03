@@ -16,6 +16,15 @@ We wrote brainfuck analyzation tools, including a Decoder, Encoder, and a Visual
 
 ### Run `make clean`
 
+#### For Decoder
+`make decode ARGS="<mode> <input>"`
+
+`<mode>` = '-p' (plaintext mode) or '-f' (file mode)
+
+`<finput>` = 'plaintext' or 'filename'
+
+Type in Brainfuck code either as plaintext, or put it in a file and provide the file name. File mode will write the output to `output.txt`.
+
 #### For Encoder (argument order matters!):
 `make encode ARGS="<flag1> <flag2> <arg>"`
 
@@ -33,14 +42,6 @@ Using plaintext mode will output the brainfuck to the terminal, while file mode 
 In the GUI make sure to input correct brainfuck instructions, or press q to exit.
 In comma mode (input listening mode), only the first character (ASCII) will be considered.
 
-#### For Decoder
-`make decode ARGS="<mode> <input>"`
-
-`<mode>` = '-p' (plaintext mode) or '-f' (file mode)
-
-`<finput>` = 'plaintext' or 'filename'
-
-Type in Brainfuck code either as plaintext, or put it in a file and provide the file name. File mode will write the output to `output.txt`.
 ### Resources/References:
 
 https://www.dcode.fr/brainfuck-language
