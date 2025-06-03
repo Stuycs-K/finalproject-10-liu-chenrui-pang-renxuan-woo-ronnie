@@ -17,6 +17,8 @@ We wrote brainfuck analyzation tools, including a Decoder, Encoder, and a Visual
 ### Run `make clean`
 
 #### For Decoder
+##### Note that to use the Decoder with the makefile you must backslash escape all the `>` and `<` signs, so instead for longer commands you can just use javac and java.
+
 `make decode ARGS="<mode> <input>"`
 
 `<mode>` = '-p' (plaintext mode) or '-f' (file mode)
