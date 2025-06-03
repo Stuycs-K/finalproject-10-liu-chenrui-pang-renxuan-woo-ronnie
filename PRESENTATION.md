@@ -30,14 +30,16 @@ When `[`is parsed, `execute()` is called recursively on the substring of code be
 
 Example: `[+++.[+++].]`
 
-# Example for Understanding Encoding: "HI"
-At the most basic level, you can simply increment the current cell 72 times using the `+`command and then outputing "H" with `.` Increment it once more and outputing it to get "I", but that's no fun and the brainfuck clogs up the screen. We want to utilize loops.
+# Encoder
+At the most basic level, you can encode anything in brainfuck by just incrementing using the `+` command and then outputting with the `.` command. However, this is very inefficient and the brainfuck will be almost impossible to read. To solve this, our encoder utilizes the `[` and `]` commands to loop and shorten the process. 
 
-Since the ASCII values for any character we need are between 32 to 126, we can find a common divisor to function as part of the loop. This is difficult because of the last digit, but we can avoid this calculation and manually increment it after the loop. This leaves us with numbers that are easily divisable by 10 from 30 to 120.
+Since the ASCII decimal values for any common character we need are between 32 to 126, we can find a common factor to function as the number of loops. This is difficult because of the last digit, but we can avoid this calculation and manually increment it after the loop which leaves us with numbers that are easily divisible by 10 from 30 to 120. The quotient from this division will be the value of each loop for that character value.
 
-We can loop the the first two cells 10 times incrementing by 7 to get a value of 70 in both cells. To make "H" and "I", we can increment the first cell by 2 and the second cell by 3 while outputing with `.` at each step.
+To improve ease of use, the encoder features a file mode and a shorthand mode. 
 
-But even with looping, the brainfuck can still be ridiculously long. Especially with our file mode implementation where you may want to encode the bytes of an image into brainfuck. Our encoder implements a shorthand that adds the number before the "+" increment. So if we were to increment 8 times, instead of "++++++++"  we can just write "8+". This improves readability massively.
+- File mode can be useful to encode a ".txt" file. File mode is **NOT** suggested with large files like images.
+
+- Shorthand mode is useful to automatically count the number of "+"s in each brainfuck operation so you can follow along easier with the process. It follows the format "<#>+" with <#> being the number of "+"s.
 
 # Visualizer
 For the visualizer, after you run the code you will be presented with a GUI and all you have to do is to enter brainfuck instructions (the 8 instructions) and you will be able to see the code compile in action. On the bottom here displays 25 cells that you can work with, and on the right side you can see which page you are on, and that is all you need to start writing brainfuck commands.
