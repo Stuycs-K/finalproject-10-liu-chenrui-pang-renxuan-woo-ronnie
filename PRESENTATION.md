@@ -1,7 +1,7 @@
 # Intro to Brainfuck
 So what is brainfuck in the first place?
 
-Brainfuck is an esoteric programming language created in 1993 by Urban Muller meant to be minimalistic, consisting of only eight simple commands, a data pointer, and an array of bytes which in this context is referred to as cells or memory. Despite its simplicity, Brainfuck is Turing-complete, meaning it can theoretically compute anything the a conventional computer can.
+Brainfuck is an esoteric programming language created in 1993 by Urban Muller meant to be minimalistic, consisting of only eight simple commands, a data pointer, and an array of bytes which in this context is referred to as cells or memory. Despite its simplicity, Brainfuck is Turing-complete, meaning it can theoretically compute anything that a conventional computer can.
 
 # How Brainfuck Works
 
@@ -29,6 +29,20 @@ The decoder takes in a string of Brainfuck code, either as plaintext (`-p`) or i
 When `[`is parsed, `execute()` is called recursively on the substring of code between the left bracket and its corresponding right bracket. This substring is determined by reading forward one character at a time until `]` is found. For nested loops, if another `[` is found before a `]`, the next `]` is not counted as the corresponding right bracket.
 
 Example: `[+++.[+++].]`
+
+## Test Cases
+
+`make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.+."`
+Output: "ABCD"
+
+`make decode ARGS=",."`
+Output: Whatever character is inputted
+
+`make decode ARGS="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.[-\>+\<]\>."`
+Output:"AA"
+
+`make decode ARGS="-c ++++++++[\>++++[\>++\>+++\>+++\>+\<\<\<\<-]\>+\>+\>-\>\>+[\<]\<-]\>\>.\>---.+++++++..+++.\>\>.\<-.\<.+++.------.--------.\>\>+.\>++."`
+Output: "Hello World!"
 
 # Encoder
 At the most basic level, you can encode anything in brainfuck by just incrementing using the `+` command and then outputting with the `.` command. However, this is very inefficient and the brainfuck will be almost impossible to read. To solve this, our encoder utilizes the `[` and `]` commands to loop and shorten the process. 
