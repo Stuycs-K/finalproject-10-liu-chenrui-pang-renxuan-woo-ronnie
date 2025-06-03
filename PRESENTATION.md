@@ -58,5 +58,10 @@ To improve ease of use, the encoder features a file mode and a shorthand mode.
 
 - Shorthand mode is useful to automatically count the number of "+"s in each brainfuck operation so you can follow along easier with the process. It follows the format "<#>+" with <#> being the number of "+"s.
 
+## Test Cases
+`make encode ARGS="-p -n 'HI'"`
+
+`make encode ARGS="-p -n 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'"`
+
 # Visualizer
 For the visualizer, after you run the code you will be presented with a GUI and all you have to do is to enter brainfuck instructions (the 8 instructions) and you will be able to see the code compile in action. On the bottom here displays 25 cells that you can work with, and on the right side you can see which page you are on, and that is all you need to start writing brainfuck commands.

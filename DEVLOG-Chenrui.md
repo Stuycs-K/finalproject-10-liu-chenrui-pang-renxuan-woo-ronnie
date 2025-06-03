@@ -44,3 +44,6 @@ Worked on encoder part of PRESENTATION.md
 
 ### 2025-06-02 - Update PRESENTATION.md
 Reworded the encoder part to be more general.
+
+### 2025-06-03 - Update PRESENTATION.md
+Added specific test cases to encoder.
