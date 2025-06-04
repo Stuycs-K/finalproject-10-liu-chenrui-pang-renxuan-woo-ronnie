@@ -65,3 +65,10 @@ To improve ease of use, the encoder features a file mode and a shorthand mode.
 
 # Visualizer
 For the visualizer, after you run the code you will be presented with a GUI and all you have to do is to enter brainfuck instructions (the 8 instructions) and you will be able to see the code compile in action. On the bottom here displays 25 cells that you can work with, and on the right side you can see which page you are on, and that is all you need to start writing brainfuck commands.
+
+The user can either just type a command (out of the 8) and then press enter, or press q when they would like to exit the program. 
+
+When you reach the end of the scrolling for the current page, the page will automatically scroll to the next cell unless there are no more cells to go to. 
+
+## Test Case
+For the test case I will be demonstrating the Hello World program running in the visualizer
