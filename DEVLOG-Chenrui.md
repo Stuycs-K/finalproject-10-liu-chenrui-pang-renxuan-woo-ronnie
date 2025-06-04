@@ -46,4 +46,4 @@ Worked on encoder part of PRESENTATION.md
 Reworded the encoder part to be more general.
 
 ### 2025-06-03 - Update PRESENTATION.md
-Added specific test cases to encoder.
+Added specific test cases to encoder. Recorded the final presentation video as a group.
