@@ -89,6 +89,7 @@ public class Visualizer {
         int index = (pointerCol - 3) / 4;
         info[index] = (int) insert.charAt(0);
         appendInput(input);
+        flavorText = "Type q to quit, otherwise enter Brainfuck instructions.";
       }
       // brackets
       if (input.equals("[")) {
