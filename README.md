@@ -21,11 +21,11 @@ We wrote brainfuck analyzation tools, including a Decoder, Encoder, and a Visual
 
 `make decode ARGS="<mode> <input>"`
 
-`<mode>` = '-p' (plaintext mode) or '-f' (file mode)
+`<mode>` = '-c' (ciphertext mode) or '-f' (file mode)
 
-`<finput>` = 'plaintext' or 'filename'
+`<input>` = 'ciphertext' or 'filename'
 
-Type in Brainfuck code either as plaintext, or put it in a file and provide the file name. File mode will write the output to `output.txt`.
+Type in Brainfuck code either as ciphertext, or put it in a file and provide the file name. File mode will write the output to `output.txt`.
 
 #### For Encoder (argument order matters!):
 `make encode ARGS="<flag1> <flag2> <arg>"`
