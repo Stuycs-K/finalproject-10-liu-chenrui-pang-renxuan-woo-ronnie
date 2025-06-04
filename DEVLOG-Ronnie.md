@@ -50,4 +50,4 @@ I wrote the presentation slides section and README section for the decoder.
 
 ### 2025-06-03 - Slides, README, and Video Outline
 
-We finalized the slides, README, and video outline together. We also did some final testing to make sure all the code works.
+We finalized the slides, README, and video outline together. We also did some final testing to make sure all the code works. We then recorded the video.
