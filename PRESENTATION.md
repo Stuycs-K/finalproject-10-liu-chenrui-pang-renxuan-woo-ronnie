@@ -20,15 +20,17 @@ Each character's ASCII value needs to be reached by incrementing or decrementing
 
 # Decoding
 
-The decoder takes in a string of Brainfuck code, either as plaintext (`-p`) or in a file (`-f`). It uses a function `execute()` that parses the input and executes it character by character.
+The decoder takes in a string of Brainfuck code, either as ciphertext (`-c`) or in a file (`-f`). It uses a function `execute()` that parses the input and executes it character by character.
 
 `>` and `<` move the pointer. If the pointer ever goes out of bounds, `RANGE ERROR` is printed and the program ends.
 
-`+` and `-` increment the value at the cell being pointed at. The value wraps around within the range 0-255. `.` prints the character with the corresponding ASCII value at current cell.
+`+` and `-` increment the value at the cell being pointed at. The value wraps around within the range 0-255.
+
+`.` prints the character with the corresponding ASCII value at current cell.
 
 When `[`is parsed, `execute()` is called recursively on the substring of code between the left bracket and its corresponding right bracket. This substring is determined by reading forward one character at a time until `]` is found. For nested loops, if another `[` is found before a `]`, the next `]` is not counted as the corresponding right bracket.
 
-Example: `[+++.[+++].]`
+Example (not actual code): `[+++.[+++].]`
 
 ## Test Cases
 
