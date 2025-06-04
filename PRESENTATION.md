@@ -28,6 +28,8 @@ The decoder takes in a string of Brainfuck code, either as ciphertext (`-c`) or 
 
 `.` prints the character with the corresponding ASCII value at current cell.
 
+`,` takes in one byte of input from the user and places the corresponding ASCII value into the cell currently being pointed at.
+
 When `[`is parsed, `execute()` is called recursively on the substring of code between the left bracket and its corresponding right bracket. This substring is determined by reading forward one character at a time until `]` is found. For nested loops, if another `[` is found before a `]`, the next `]` is not counted as the corresponding right bracket.
 
 Example (not actual code): `[+++.[+++].]`
