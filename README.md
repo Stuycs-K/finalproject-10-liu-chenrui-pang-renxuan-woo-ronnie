@@ -50,4 +50,8 @@ https://www.dcode.fr/brainfuck-language
 
 https://en.wikipedia.org/wiki/Brainfuck
 
-https://gist.github.com/roachhd/dce54bec8ba55fb17d3a
+https://gist.github.com/roachhd/dce54bec8ba55fb17d3a 
+
+### PRESENTATION LINK
+
+https://youtu.be/AKaMnkhGw6o
