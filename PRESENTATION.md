@@ -47,6 +47,7 @@ Output: Whatever character is inputted
 Output:"AA"
 
 `make decode ARGS="-c ++++++++[\>++++[\>++\>+++\>+++\>+\<\<\<\<-]\>+\>+\>-\>\>+[\<]\<-]\>\>.\>---.+++++++..+++.\>\>.\<-.\<.+++.------.--------.\>\>+.\>++."`
+
 Output: "Hello World!"
 
 # Encoder
